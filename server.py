@@ -1,11 +1,9 @@
 import socket
 import threading
 
-# Configurações de conexão
-HOST = '127.0.0.1'  # Localhost
-PORT = 55555        # Porta arbitrária (acima de 1024)
+HOST = '127.0.0.1'
+PORT = 55555
 
-# Iniciando o servidor
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
@@ -23,7 +21,6 @@ def broadcast(message):
 def handle(client):
     while True:
         try:
-            # Recebe mensagem do cliente
             message = client.recv(1024)
             broadcast(message)
         except:
